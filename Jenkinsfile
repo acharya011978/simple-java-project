@@ -8,7 +8,7 @@ pipeline {
 	           
 			steps { 
 				echo 'Job Name: ${params.JOB_NAME}'
-				git branch: 'main', url: 'https://github.com/acharya011978/simple-java-project.git'
+				git branch: 'master', url: 'https://github.com/acharya011978/simple-java-project.git'
 				} 
 	        	 }
 	    
