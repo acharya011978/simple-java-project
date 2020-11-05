@@ -1,8 +1,8 @@
+CODE_CHANGES = getGitChanges()
+
 pipeline {
  agent any
-	    
-	
-	     
+	 
 	 stages { 
 		stage("Checkout") {
 	           
@@ -13,6 +13,11 @@ pipeline {
 	        	 }
 	    
 		 stage ("Build") { 
+			 when{
+				 expression{
+					  BRANCH_NAME = 'master' && CODE_CHANGES == true
+				 }
+			 }
 			steps{
 				echo "building appl..."
 	                    	sh 'mvn clean install'
@@ -26,7 +31,18 @@ pipeline {
 				 echo 'deploying the application'
 		           	// echo 'deploying version: ${params.VERSION}'
 		               }
-	       		 }
+	      		 }
 	        
 	    }
+	
+	
+	post {
+		always{
+			echo "send email about build status"
+		}	
+		success{
+			echo "build succeed."
+		}
+	}
+	
 	 }
