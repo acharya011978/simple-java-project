@@ -1,7 +1,10 @@
-CODE_CHANGES = getGitChanges()
+
 
 pipeline {
  agent any
+	environment{
+		NEW_VERSION = '1.1'
+	}
 	 
 	 stages { 
 		stage("Checkout") {
@@ -15,11 +18,12 @@ pipeline {
 		 stage ("Build") { 
 			 when{
 				 expression{
-					  BRANCH_NAME = 'master' && CODE_CHANGES == true
+					  BRANCH_NAME = 'master' 
 				 }
 			 }
 			steps{
 				echo "building appl..."
+				echo "Build version is: ${NEW_VERSION}"
 	                    	sh 'mvn clean install'
 	                     }
 	     
