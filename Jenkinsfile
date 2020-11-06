@@ -1,7 +1,8 @@
 
 
 pipeline {
-	node {	def HostIP = sh "curl ipinfo.io/ip"
+	node {
+		def HostIP = sh 'curl ipinfo.io/ip'
 	     }
 	
  agent any
