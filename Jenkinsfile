@@ -3,7 +3,13 @@
 pipeline {
  agent any
 	environment{
+		
 		NEW_VERSION = '1.1'
+	}
+	parameters{
+		HostIP = sh 'curl ipinfo.io/ip'
+		string(name: 'HostIP', defaultValue: '${HostIP}', description: 'Host ipv4 address i.e.  public ip')
+		
 	}
 	 
 	 stages { 
@@ -31,7 +37,7 @@ pipeline {
 				 echo 'deploying the application...'
 				 echo '...'
 		           	 sshagent(['deploy_user1']) {
-  				 sh 'scp -o StrictHostKeyChecking=no "/var/lib/jenkins/workspace/Buddy_Works/target/works-with-heroku-1.0.war" ec2-user@3.139.77.98:/home/ec2-user/apache-tomcat-9.0.39/webapps/'
+  				 sh 'scp -o StrictHostKeyChecking=no "/var/lib/jenkins/workspace/Buddy_Works/target/works-with-heroku-1.0.war" ec2-user@${params.HostIP}:/home/ec2-user/apache-tomcat-9.0.39/webapps/'
 				 		}
 		               }
 	      		 }
