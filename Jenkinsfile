@@ -7,12 +7,19 @@ pipeline {
 		NEW_VERSION = '1.1'
 	}
 	parameters{
-		HostIP = sh 'curl ipinfo.io/ip'
+		
 		string(name: 'HostIP', defaultValue: '${HostIP}', description: 'Host ipv4 address i.e.  public ip')
 		
 	}
 	 
 	 stages { 
+		 
+		 stage("get_Dest_IP") {
+  				steps {
+   				 HostIP = sh 'curl ipinfo.io/ip'
+					  }
+					}
+
 		stage("Checkout") {
 	           
 			steps { 
