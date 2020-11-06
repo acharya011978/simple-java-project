@@ -1,9 +1,7 @@
 
 
 pipeline {
-	node {
-		def HostIP = sh 'curl ipinfo.io/ip'
-	     }
+	
 	
  agent any
 	environment{
@@ -11,10 +9,9 @@ pipeline {
 		NEW_VERSION = '1.1'
 	}
 	parameters{
-		
-		string(name: 'HostIP', defaultValue: '${HostIP}', description: 'Host ipv4 address i.e.  public ip')
-		
-	}
+		//def HostIP = sh 'curl ipinfo.io/ip'
+		//string(name: 'HostIP', defaultValue: '${HostIP}', description: 'Host ipv4 address i.e.  public ip')
+		}
 	 
 	 stages { 
 		 
