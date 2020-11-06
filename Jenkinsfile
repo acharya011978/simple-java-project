@@ -20,7 +20,7 @@ pipeline {
 			steps{
 				echo "building appl..."
 				echo "Build version is: ${NEW_VERSION}"
-	                    	sh 'mvn clean install'
+	                    	sh 'mvn clean compile install'
 	                     }
 	     
 	     	            
