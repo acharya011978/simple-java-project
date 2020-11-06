@@ -14,7 +14,6 @@ public class WorksWithHerokuServlet extends HttpServlet {
         response.setStatus(404);
         PrintWriter writer = response.getWriter();
         writer.print("Buddy Works with Heroku");
-	writer.print("Hi, I updated release 1.0 to 1.1");
-        writer.close();
+	writer.close();
     }
 }
