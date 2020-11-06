@@ -16,11 +16,7 @@ pipeline {
 	        	 }
 	    
 		 stage ("Build") { 
-			 when{
-				 expression{
-					  BRANCH_NAME = 'master' 
-				 }
-			 }
+			
 			steps{
 				echo "building appl..."
 				echo "Build version is: ${NEW_VERSION}"
