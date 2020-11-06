@@ -1,6 +1,9 @@
 
 
 pipeline {
+	node {	def HostIP = sh "curl ipinfo.io/ip"
+	     }
+	
  agent any
 	environment{
 		
@@ -14,12 +17,6 @@ pipeline {
 	 
 	 stages { 
 		 
-		 stage("get_Dest_IP") {
-  				steps {
-					{HostIP} == sh 'curl ipinfo.io/ip'
-					  }
-					}
-
 		stage("Checkout") {
 	           
 			steps { 
