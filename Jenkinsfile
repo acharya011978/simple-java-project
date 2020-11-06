@@ -34,9 +34,9 @@ pipeline {
 			 steps { 
 				 echo 'deploying the application...'
 				 echo '...'
-		           	sshagent(['deploy_user1']) {
-  					  scp "/var/lib/jenkins/workspace/Buddy_Works/target/works-with-heroku-1.0.war" ec2-user@18.224.153.16:apache-tomcat-9.0.39/webapps/
-						}
+		           	 sshagent(['deploy_user1']) {
+  				 sh 'scp -o StrictHostKeyChecking=no "/var/lib/jenkins/workspace/Buddy_Works/target/works-with-heroku-1.0.war" ec2-user@18.224.153.16:apache-tomcat-9.0.39/webapps/'
+				 		}
 		               }
 	      		 }
 	        
