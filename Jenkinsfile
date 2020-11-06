@@ -16,7 +16,7 @@ pipeline {
 		 
 		 stage("get_Dest_IP") {
   				steps {
-   				 HostIP = sh 'curl ipinfo.io/ip'
+   				 HostIP == sh 'curl ipinfo.io/ip'
 					  }
 					}
 
