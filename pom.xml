@@ -17,23 +17,16 @@
             <scope>provided</scope>
         </dependency> 
 
-<!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api --> <dependency> 
+
+<dependency> 
     <groupId>javax.servlet</groupId> 
 	<artifactId>javax.servlet-api</artifactId> 
 	<version>4.0.1</version> 
 	<scope>provided</scope>
     </dependency>
 
- 
-	<dependency> 
-		<version>4.0.1</version> 
-		<groupId>junit</groupId> 
-		<scope>provided</scope> 
-		<artifactId>junit</artifactId> 
-		<scope>test</scope>
-	</dependency>
-             
-          <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin --> 
+            
+          
 		<dependency>
 		    <groupId>org.apache.maven.plugins</groupId>
            	    <artifactId>maven-surefire-plugin</artifactId>
